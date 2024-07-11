@@ -1,0 +1,6 @@
+{
+    "configuration": "PSRAM=enabled,FlashMode=qio,FlashSize=8M,LoopCore=1,EventsCore=1,USBMode=default,CDCOnBoot=cdc,MSCOnBoot=default,DFUOnBoot=default,UploadMode=cdc,PartitionScheme=default_8MB,CPUFreq=240,UploadSpeed=921600,DebugLevel=none,EraseFlash=none",
+    "board": "esp32:esp32:bpi_leaf_s3",
+    "programmer": "esp32:esptool",
+    "port": "COM6"
+}
