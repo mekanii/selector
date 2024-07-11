@@ -18,15 +18,15 @@
 #define ARRAY_SIZE(arr) (sizeof(arr) / sizeof((arr)[0]))
 
 #define FORMAT_SPIFFS_IF_FAILED true
-#define CREATE_NEW_PARTLIST false
+#define CREATE_NEW_PARTLIST true
 
-#define RW_SCALE_FACTOR true
+#define RW_SCALE_FACTOR false
 #define INIT_CALIBRATION true
 #define TEST_SCALE_CALIBRATION false
 
-#define HYSTERESIS 0.05f
-#define HYSTERESIS_STABLE_CHECK 0.005f
-#define STABLE_READING_REQUIRED 10
+#define HYSTERESIS 5.0f
+#define HYSTERESIS_STABLE_CHECK 1.0f
+#define STABLE_READING_REQUIRED 30
 
 float lastWeight = 0.0f;
 int stableReadingsCount = 0;
@@ -117,7 +117,7 @@ String dateTimeNow() {
 
 float readScale() {
   static float filteredWeight = 0.0; // Initialize the filtered weight
-  const float alpha = 0.1; // Smoothing factor (0 < alpha <= 1)
+  const float alpha = 0.2; // Smoothing factor (0 < alpha <= 1)
   
   float weight = 0.00;
   if (scale.wait_ready_timeout(1000)) {
@@ -231,7 +231,7 @@ void displayMainFrame() {
   spr.loadFont(MONOFONTO96);
   spr.setTextColor(TFT_ORANGE, TFT_BLACK);
   tft.setCursor(372, 120);
-  spr.printToSprite("kg");
+  spr.printToSprite("gr");
   spr.deleteSprite();
   spr.unloadFont();
 }
@@ -385,7 +385,8 @@ void rotarySelector() {
     displayMain(weight);
 
     if (checkStableState(weight)) {
-      if (weight >= 0 - HYSTERESIS && weight <= 0 + HYSTERESIS) {
+      // if (weight >= 0 - HYSTERESIS && weight <= 0 + HYSTERESIS) {
+      if (weight <= partStd * 0.1f) {
         CHECK_STATUS = 0;
       } else if (weight >= partStd - HYSTERESIS && weight <= partStd + HYSTERESIS && CHECK_STATUS == 0) {
         CHECK_STATUS = 1;
@@ -517,8 +518,8 @@ void writePart() {
     0,
     0.10,
     0.25,
-    0.50,
-    1.00,
+    400.00,
+    1000.00,
     2.50,
     5.00,
     7.25,
@@ -641,7 +642,7 @@ void calibrateScale(float sc = 0) {
     Serial.println("Place a known weight on the scale.");
     delay(5000);
     sc = scale.get_units(10);
-    float wt = 250.0f;
+    float wt = 1000.0f;
     sc = sc / wt;
   }
   scale.set_scale(sc);
