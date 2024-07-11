@@ -24,9 +24,9 @@ This project is an Arduino-based scale and menu system that uses various compone
 ## Installation
 
 1. **Clone the Repository**:
-sh
-git clone https://github.com/yourusername/arduino-scale-menu-system.git
-cd arduino-scale-menu-system
+```sh
+git clone https://github.com/mekanii/selector.git
+cd arduino-scale-menu-system```
 
 2. **Install Required Libraries**:
     - [ArduinoJson](https://github.com/bblanchon/ArduinoJson)
