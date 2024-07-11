@@ -39,12 +39,7 @@ cd arduino-scale-menu-system
     - [FS](https://github.com/esp8266/Arduino/tree/master/libraries/FS)
     - [SPIFFS](https://github.com/pellepl/spiffs)
 
-3. **Upload the Code**:
-    - Open `src/main.cpp` in the Arduino IDE.
-    - Select the appropriate board and port.
-    - Upload the code to your Arduino board.
-
-4. **Define Constants**:
+3. **Define Constants**:
     - Open `src/main.cpp` in your preferred code editor.
     - Locate the section at the top of the file where constants are defined. It should look like this:
     ```cpp
@@ -71,12 +66,22 @@ cd arduino-scale-menu-system
 
     - Save the changes to `src/main.cpp`.
 
+4. **Upload the Code**:
+    - Open `src/main.cpp` in the Arduino IDE.
+    - Select the appropriate board and port.
+    - Unplug the TFT LCD.
+    - Unplug the header with the longest pin on the bottom of the board.
+    - Upload the code to your Arduino board.
+    - Plug the header back in.
+    - Plug the TFT LCD back in.
+
 ## Usage
 
 1. **Power on the System**: Connect the Arduino to a power source.
 2. **Navigate Menus**: Use the rotary encoder to navigate through the menus.
 3. **Select Parts**: Select parts from the list and measure their weights.
-4. **Calibrate Scale**: Follow the instructions to calibrate the scale if necessary.
+4. **Calibrate Scale**: Follow the instructions to calibrate the scale if necessary (next).
+5. **Measure Weight**: Place the weight after the OK or NG status disappears on the LCD.
 
 ## File Structure
 
