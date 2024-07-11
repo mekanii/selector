@@ -24,7 +24,7 @@ This project is an Arduino-based scale and menu system that uses various compone
 ## Installation
 
 1. **Clone the Repository**:
-```
+```sh
 git clone https://github.com/mekanii/selector.git
 cd arduino-scale-menu-system
 ```
@@ -43,6 +43,33 @@ cd arduino-scale-menu-system
     - Open `src/main.cpp` in the Arduino IDE.
     - Select the appropriate board and port.
     - Upload the code to your Arduino board.
+
+4. **Define Constants**:
+    - Open `src/main.cpp` in your preferred code editor.
+    - Locate the section at the top of the file where constants are defined. It should look like this:
+    ```cpp
+    #define FORMAT_SPIFFS_IF_FAILED true
+    #define CREATE_NEW_PARTLIST true
+
+    #define RW_SCALE_FACTOR false
+    #define INIT_CALIBRATION true
+    #define TEST_SCALE_CALIBRATION false
+
+    #define HYSTERESIS 5.0f
+    #define HYSTERESIS_STABLE_CHECK 1.0f
+    #define STABLE_READING_REQUIRED 30
+    ```
+    - Modify the constants as needed for your specific setup:
+        - `FORMAT_SPIFFS_IF_FAILED`: Set to `true` to format SPIFFS if it fails to mount.
+        - `CREATE_NEW_PARTLIST`: Set to `true` to create a new part list.
+        - `RW_SCALE_FACTOR`: Set to `true` if you want to read/write the scale factor.
+        - `INIT_CALIBRATION`: Set to `true` to initialize the calibration process.
+        - `TEST_SCALE_CALIBRATION`: Set to `true` to test the scale calibration.
+        - `HYSTERESIS`: Set the value for hysteresis in weight measurement.
+        - `HYSTERESIS_STABLE_CHECK`: Set the value for stable check hysteresis.
+        - `STABLE_READING_REQUIRED`: Set the number of stable readings required for a stable weight measurement.
+
+    - Save the changes to `src/main.cpp`.
 
 ## Usage
 
