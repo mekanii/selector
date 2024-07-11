@@ -4,11 +4,11 @@ This project is an Arduino-based scale and menu system that uses various compone
 
 ## Components Used
 
-- **Arduino Board**
+- **BPI-Leaf-S3**
 - **Rotary Encoder**
 - **Load Cell with HX711 Amplifier**
 - **RTC Module (DS3231)**
-- **TFT Display (TFT_eSPI)**
+- **TFT Display ILI9486 Parallel 8-bit (TFT_eSPI)**
 - **Buzzer (Tone library)**
 - **SPIFFS for File System**
 - **ArduinoJson for JSON Handling**
