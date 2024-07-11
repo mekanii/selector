@@ -24,9 +24,10 @@ This project is an Arduino-based scale and menu system that uses various compone
 ## Installation
 
 1. **Clone the Repository**:
-```sh
+```
 git clone https://github.com/mekanii/selector.git
-cd arduino-scale-menu-system```
+cd arduino-scale-menu-system
+```
 
 2. **Install Required Libraries**:
     - [ArduinoJson](https://github.com/bblanchon/ArduinoJson)
@@ -56,14 +57,6 @@ cd arduino-scale-menu-system```
 - `monofontoReg20.h`, `monofontoReg28.h`, `monofontoReg96.h`: Font files for the TFT display.
 - `partList.json`: JSON file storing the list of parts and their standard weights.
 - `scaleFactor.txt`: File storing the scale factor for calibration.
-
-## Contributing
-
-Contributions are welcome! Please open an issue or submit a pull request for any improvements or bug fixes.
-
-## License
-
-This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgements
 
